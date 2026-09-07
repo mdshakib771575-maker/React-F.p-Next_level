@@ -13,44 +13,66 @@ import "./Style.css"
 // export default Card;
 
 
- export default function Card ({Name,age})  {
+//  export default function Card ({name,age})  {
 
-    // if (age > 18) {
-    //     return (
-    //         <div>
+//     if (age > 18) {
+//         return (
+//             <div>
 
-    //             <p>FristName : {Name}</p>
-    //             <p>FristName : {age}</p>
+//                 <p>FristName : {Name}</p>
+//                 <p>FristName : {age}</p>
 
-    //         </div>
-    //     );
-    // }
-    // if (age < 18) {
-    //     return "you are young"
-    // }
+//             </div>
+//         );
+//     }
+//     if (age < 18) {
+//         return "you are young"
+//     }
+
+// };
 
 
-    // return (
-    //     <>
-    //         {age > 18 && <div>
-    //             <p>FristName : {Name}</p>
-    //             <p>FristName : {age}</p>
-    //         </div>
-    //         }
-    //         {age < 18 && "you are young"}
-    //     </>
-    // )
 
-      return (
+
+//  export default function Card ({name,age})  {
+//     // return (
+//     //     <>
+//     //         {age > 18 && <div>
+//     //             <p>FristName : {Name}</p>
+//     //             <p>FristName : {age}</p>
+//     //         </div>
+//     //         }
+//     //         {age < 18 && "you are young"}
+//     //     </>
+//     // )
+// };
+
+
+
+
+export default function Card({ name, age }) {
+
+    const ClickHandaler = (memberName) => {
+        console.log(`greeting ${memberName}`)
+    }
+    
+    const AnathoerClick = (Mname)=>{
+        ClickHandaler(Mname)
+        console.log("Anther Click");
+    }
+    return (
         <>
-            {age > 18 ? <div className="style">
-                <p>FristName : {Name}</p>
+            {age > 18 ? <div onClick={()=>AnathoerClick(name)} className="style">
+                <p>FristName : {name}</p>
                 <p>FristName : {age}</p>
             </div>
-            : <div className="style">you are young</div>}
+                : <div className="style">you are young</div>}
         </>
     )
 };
+
+
+
 
 
 
@@ -66,7 +88,7 @@ import "./Style.css"
 //                 <p>FristName : {member.Name}</p>
 //                 <p>FristName : {member.age}</p>
 //             </div>
-//             : <div className="style">you are young</div>)} 
+//             : <div className="style">you are young</div>)}
 //         </>
 //     )
 // };
