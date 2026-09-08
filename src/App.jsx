@@ -1,4 +1,4 @@
- //way-1
+//way-1
 
 // import './App.css'
 // import Card from './components/Card'
@@ -27,9 +27,9 @@
 
 
 
- //way-2
+//way-2
 
- 
+
 // import './App.css'
 // import Card from './components/Card'
 // const members = [
@@ -53,14 +53,25 @@
 
 // way-3
 
+import { useState } from 'react'
 import './App.css'
 import TestComponet from './TestComponet'
 
 function App() {
+ let [name, setName] = useState("");
+  const handalSubmit = (e) => {
+    // console.log(e)
+    e.preventDefault()
+    console.log(name)
+  }
 
   return (
     <>
- <TestComponet></TestComponet>
+      <form onSubmit={handalSubmit}>
+        <input type="text" onChange={(e)=>setName(e.target.value)}/>
+        <button type='submit'>submit</button>
+      </form>
+      <TestComponet></TestComponet>
     </>
   )
 }
