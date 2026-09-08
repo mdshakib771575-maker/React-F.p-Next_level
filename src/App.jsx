@@ -2,7 +2,7 @@
 
 // import './App.css'
 // import Card from './components/Card'
-// // import TestComponet from './TestComponet'
+// import TestComponet from './TestComponet'
 
 // const members = [
 //   { Name: "Shakib", age: 21 },
@@ -30,7 +30,9 @@
 //way-2
 
 
-// import './App.css'
+// import { useState } from 'react'
+import { useState } from 'react'
+import './App.css'
 // import Card from './components/Card'
 // const members = [
 //   { Name: "Shakib", age: 21 },
@@ -40,8 +42,29 @@
 // ]
 
 // function App() {
+//   let [members,setMembers] = useState([]);
+//  let [name, setName] = useState("");
+//  let [age, setAge] = useState("");
+//   const handalSubmit = (e) => {
+//     // console.log(e)
+//     e.preventDefault()
+//     // setMembers([...members,{Name:name,age}])
+//     setMembers((prev)=>[...prev,{name,age}])
+//     setAge("")
+//     setName("")
+//     // console.log(members);
+   
+//   }
 //   return (
+      
 //     <>
+//       <form onSubmit={handalSubmit}>
+//         <input type="text" onChange={(e)=>setName(e.target.value)} value={name}/>
+        
+//         <input type="number" onChange={(e)=>setAge(e.target.value)} value={age}/>
+//         <button type='submit'>submit</button>
+//       </form>
+
 //       {members.map((member) => <Card name={member.Name} age={member.age}></Card>)}
 
 //     </>
@@ -53,25 +76,29 @@
 
 // way-3
 
-import { useState } from 'react'
+// import { useState } from 'react'
 import './App.css'
+import Display from './components/Display'
 import TestComponet from './TestComponet'
-
+ 
 function App() {
- let [name, setName] = useState("");
-  const handalSubmit = (e) => {
-    // console.log(e)
-    e.preventDefault()
-    console.log(name)
-  }
+  let [count, setCount] = useState(0)
+//  let [name, setName] = useState("");
+
+  // const handalSubmit = (e) => {
+  //   // console.log(e)
+  //   e.preventDefault()
+  //   console.log(name)
+  // }
 
   return (
     <>
-      <form onSubmit={handalSubmit}>
+      {/* <form onSubmit={handalSubmit}>
         <input type="text" onChange={(e)=>setName(e.target.value)}/>
         <button type='submit'>submit</button>
-      </form>
-      <TestComponet></TestComponet>
+      </form> */}
+      <TestComponet count={count} setCount={setCount}></TestComponet>
+      <Display count={count}></Display>
     </>
   )
 }
