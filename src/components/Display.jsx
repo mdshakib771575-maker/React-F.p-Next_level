@@ -1,9 +1,11 @@
 // import React from 'react';
+import NestedDis from "./NestedDis";
 import "./Style.css"
-const Display = ({count}) => {
+const Display = () => {
     return (
         <div className="style-dis">
-            <h1 >{count}</h1>
+            <h1 >nested child</h1>
+            <NestedDis></NestedDis>
         </div>
     );
 };

@@ -31,8 +31,8 @@
 
 
 // import { useState } from 'react'
-import { useState } from 'react'
-import './App.css'
+
+// import './App.css'
 // import Card from './components/Card'
 // const members = [
 //   { Name: "Shakib", age: 21 },
@@ -53,14 +53,14 @@ import './App.css'
 //     setAge("")
 //     setName("")
 //     // console.log(members);
-   
+
 //   }
 //   return (
-      
+
 //     <>
 //       <form onSubmit={handalSubmit}>
 //         <input type="text" onChange={(e)=>setName(e.target.value)} value={name}/>
-        
+
 //         <input type="number" onChange={(e)=>setAge(e.target.value)} value={age}/>
 //         <button type='submit'>submit</button>
 //       </form>
@@ -77,33 +77,92 @@ import './App.css'
 // way-3
 
 // import { useState } from 'react'
-import './App.css'
-import Display from './components/Display'
-import TestComponet from './TestComponet'
- 
-function App() {
-  let [count, setCount] = useState(0)
-//  let [name, setName] = useState("");
+// import './App.css'
+// import Display from './components/Display'
+// import TestComponet from './TestComponet'
+// import Counter_provider from './provider/Counter_provider'
 
-  // const handalSubmit = (e) => {
-  //   // console.log(e)
-  //   e.preventDefault()
-  //   console.log(name)
-  // }
+// function App() {
+
+// //  let [name, setName] = useState("");
+
+//   // const handalSubmit = (e) => {
+//   //   // console.log(e)
+//   //   e.preventDefault()
+//   //   console.log(name)
+//   // }
+
+//   return (
+
+//     <Counter_provider>
+//       {/* <form onSubmit={handalSubmit}>
+//         <input type="text" onChange={(e)=>setName(e.target.value)}/>
+//         <button type='submit'>submit</button>
+//       </form> */}
+//       <TestComponet ></TestComponet>
+//       <Display></Display>
+
+//       </Counter_provider>
+
+
+//   )
+// }
+
+// export default App
+
+// way -4
+
+// import { useEffect, useState } from 'react'
+// import './App.css'
+// function App() {
+//   const [count,setCount]=useState(0)
+//   const [Anothercount,setAnotherCount]=useState(0)
+// useEffect(()=>{
+// console.log(count);
+// },[count])
+
+//   return (
+
+//     <>
+//     <h1>hello World</h1>
+//     <button onClick={()=>setCount(count+1)}>click button {count}</button>
+//     <button onClick={()=>setAnotherCount(Anothercount+1)}>Anoteherclick button {Anothercount}</button>
+//     </>
+
+
+//   )
+// }
+
+// export default App
+
+
+
+import { useEffect, useState } from 'react'
+import './App.css'
+function App() {
+
+  const [secont, SetSecond] = useState(0)
+
+  useEffect(() => {
+   const timerId = setInterval(() => {
+      SetSecond((prev) => prev + 1);
+    
+    },1000)
+    return ()=>clearInterval(timerId)
+  }, []);
+
 
   return (
+
     <>
-      {/* <form onSubmit={handalSubmit}>
-        <input type="text" onChange={(e)=>setName(e.target.value)}/>
-        <button type='submit'>submit</button>
-      </form> */}
-      <TestComponet count={count} setCount={setCount}></TestComponet>
-      <Display count={count}></Display>
+      <h1>hello World</h1>
+      <h1>{secont}</h1>
+
     </>
+
+
   )
 }
 
 export default App
-
-
 

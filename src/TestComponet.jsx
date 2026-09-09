@@ -1,7 +1,9 @@
+import { use } from "react";
+import { CounterContext } from "./provider/Counter_provider";
 
 let age = 21;
-const TestComponet = ({count, setCount}) => {
-   
+const TestComponet = () => {
+    const { count, setCount } = use(CounterContext)
 
     const haldalIncrement = () => {
         setCount(count + 1)
